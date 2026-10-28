@@ -67,4 +67,4 @@ The food prices currently stored in the database are sample prices for demonstra
 
 ## 📸 Project Screenshot
 
-![Bite the Bill Homepage](screenshot.png)
+![Bite the Bill Homepage](Screenshot.png)
