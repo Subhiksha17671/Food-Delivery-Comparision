@@ -1,0 +1,110 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite the Bill | Compare Prices</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="/" class="logo">🍔 Bite the Bill</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/compare">Compare Prices</a>
+            <a href="/platforms">Platforms</a>
+            <a href="/categories">Categories</a>
+        </div>
+    </nav>
+</header>
+
+<main class="compare-container">
+
+    <section class="page-heading">
+        <h1>Compare Food Prices 🍕</h1>
+        <p>Find your favourite food at the lowest price!</p>
+    </section>
+
+    <form action="{{ url_for('compare') }}" method="POST" class="food-search-form">
+        <input
+            type="text"
+            name="food"
+            placeholder="Search food, e.g. Chicken Biryani"
+            value="{{ food }}"
+            required
+        >
+        <button type="submit">Compare Prices 🔍</button>
+    </form>
+
+    {% if food and not results %}
+        <div class="demo-notice">
+            No matching food items found. Try another food name.
+        </div>
+    {% endif %}
+
+    {% if results %}
+
+        {% if cheapest %}
+        <section class="cheapest-card">
+            <h2>🏆 Cheapest Deal Found!</h2>
+            <h3>{{ cheapest.item_name }}</h3>
+            <p>Platform: <strong>{{ cheapest.platform_name }}</strong></p>
+            <p class="cheapest-price">₹{{ "%.2f"|format(cheapest.price|float) }}</p>
+
+            {% if savings > 0 %}
+                <p>You could save up to ₹{{ "%.2f"|format(savings) }} compared with the highest listed price.</p>
+            {% else %}
+                <p>This is the lowest listed price for your search.</p>
+            {% endif %}
+        </section>
+        {% endif %}
+
+        <h2>Available Price Comparisons</h2>
+
+        <div class="table-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Platform</th>
+                        <th>Price</th>
+                        <th>Deal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in results %}
+                    <tr>
+                        <td>{{ item.item_name }}</td>
+                        <td>{{ item.platform_name }}</td>
+                        <td>₹{{ "%.2f"|format(item.price|float) }}</td>
+                        <td>
+                            {% if loop.first %}
+                                🏆 Cheapest
+                            {% else %}
+                                Available
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <p class="demo-notice">
+            Note: Prices are sample database values, not live prices from delivery apps.
+        </p>
+
+    {% endif %}
+
+</main>
+
+<footer>
+    <p>© 2026 Bite the Bill | Made with ❤️ and a little hunger!</p>
+</footer>
+
+</body>
+</html>
+```

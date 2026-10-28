@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite the Bill | Home</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="/" class="logo">🍔 Bite the Bill</a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/compare">Compare Prices</a>
+            <a href="/platforms">Platforms</a>
+            <a href="/categories">Categories</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <section style="
+        max-width: 1150px;
+        margin: 45px auto;
+        padding: 35px 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        flex-wrap: wrap;
+    ">
+
+        <div style="flex: 1; min-width: 280px;">
+
+            <p style="color: #587052; font-weight: bold;">
+                🍟 SMART FOOD PRICE COMPARISON
+            </p>
+
+            <h1 style="
+                color: #526b4f;
+                font-size: clamp(32px, 4vw, 48px);
+                line-height: 1.2;
+            ">
+                Your Favourite Food,<br>
+                At The Best Price!
+            </h1>
+
+            <p style="font-size: 17px; line-height: 1.7;">
+                Compare food prices and discover better deals.
+            </p>
+
+            <a href="/compare" style="
+                display: inline-block;
+                margin-top: 15px;
+                padding: 14px 24px;
+                background: #526b4f;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: bold;
+            ">
+                Compare Prices 🔍
+            </a>
+
+        </div>
+
+        <div style="
+            flex: 1;
+            min-width: 260px;
+            text-align: center;
+            font-size: clamp(55px, 8vw, 85px);
+            line-height: 1.5;
+            background: #eef3e8;
+            border-radius: 25px;
+            padding: 25px;
+        ">
+            🍕 🍔<br>
+            🍟 🍩
+        </div>
+
+    </section>
+
+    <section style="
+        max-width: 1150px;
+        margin: 20px auto 60px;
+        padding: 0 25px;
+    ">
+
+        <h2 style="color: #526b4f;">Explore Bite the Bill</h2>
+
+        <div style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        ">
+
+            <a href="/compare" style="
+                background: white;
+                padding: 25px;
+                border-radius: 15px;
+                text-decoration: none;
+                color: #526b4f;
+                text-align: center;
+                box-shadow: 0 4px 15px #0000000d;
+            ">
+                <div style="font-size: 40px;">💰</div>
+                <h3>Compare Prices</h3>
+                <p>Find the best listed deal.</p>
+            </a>
+
+            <a href="/platforms" style="
+                background: white;
+                padding: 25px;
+                border-radius: 15px;
+                text-decoration: none;
+                color: #526b4f;
+                text-align: center;
+                box-shadow: 0 4px 15px #0000000d;
+            ">
+                <div style="font-size: 40px;">🛵</div>
+                <h3>Food Platforms</h3>
+                <p>Explore available platforms.</p>
+            </a>
+
+            <a href="/categories" style="
+                background: white;
+                padding: 25px;
+                border-radius: 15px;
+                text-decoration: none;
+                color: #526b4f;
+                text-align: center;
+                box-shadow: 0 4px 15px #0000000d;
+            ">
+                <div style="font-size: 40px;">🍱</div>
+                <h3>Food Categories</h3>
+                <p>Discover your next favourite.</p>
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Bite the Bill | Find food. Compare prices. Save money. 💚</p>
+</footer>
+
+</body>
+</html>

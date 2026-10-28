@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite the Bill | Platforms</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="/" class="logo">🍔 Bite the Bill</a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/compare">Compare Prices</a>
+            <a href="/platforms">Platforms</a>
+            <a href="/categories">Categories</a>
+        </div>
+    </nav>
+</header>
+
+<main class="page-container">
+
+    <section class="page-heading">
+        <h1>Food Delivery Platforms 🚀</h1>
+        <p>Explore your food ordering options!</p>
+    </section>
+
+    <section class="platform-grid">
+
+        {% for platform in platforms %}
+
+        {% set name = platform.name | lower %}
+        {% set category = platform.category | lower %}
+
+        <article class="platform-card">
+
+            {% if 'baskin' in name or 'ice cream' in category %}
+                <div class="platform-picture dessert-picture">🍦</div>
+            {% elif 'biryani' in name or 'biryani' in category %}
+                <div class="platform-picture biryani-picture">🍛</div>
+            {% elif 'pizza' in name or 'pizza' in category %}
+                <div class="platform-picture pizza-picture">🍕</div>
+            {% elif 'burger' in name or 'mcdonald' in name or 'wendy' in name or 'kfc' in name %}
+                <div class="platform-picture burger-picture">🍔</div>
+            {% elif 'taco' in name or 'mexican' in category %}
+                <div class="platform-picture mexican-picture">🌮</div>
+            {% elif 'subway' in name or 'sandwich' in category %}
+                <div class="platform-picture sandwich-picture">🥪</div>
+            {% elif 'meat' in category or 'seafood' in category %}
+                <div class="platform-picture seafood-picture">🍤</div>
+            {% elif 'wrap' in category or 'faasos' in name %}
+                <div class="platform-picture wrap-picture">🌯</div>
+            {% elif 'meal' in category or 'box8' in name %}
+                <div class="platform-picture meal-picture">🍱</div>
+            {% else %}
+                <div class="platform-picture delivery-picture">🛵</div>
+            {% endif %}
+
+            <div class="platform-card-content">
+
+                <h2>{{ platform.name }}</h2>
+
+                <p>🍽️ {{ platform.category }}</p>
+
+                <p class="platform-location">📍 {{ platform.city }}</p>
+
+                <a href="{{ url_for('compare') }}"
+                   class="nav-button">
+                    Compare Prices 💰
+                </a>
+
+            </div>
+
+        </article>
+
+        {% endfor %}
+
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Bite the Bill | Made with ❤️ and a little hunger!</p>
+</footer>
+
+</body>
+</html>

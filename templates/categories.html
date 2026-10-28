@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite the Bill | Categories</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="/" class="logo">🍔 Bite the Bill</a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/compare">Compare Prices</a>
+            <a href="/platforms">Platforms</a>
+            <a href="/categories">Categories</a>
+        </div>
+    </nav>
+</header>
+
+<main class="page-container">
+
+    <section class="page-heading">
+        <h1>Explore Food Categories 😋</h1>
+        <p>Discover something delicious for every craving!</p>
+    </section>
+
+    <section class="category-grid">
+
+        {% for category in categories %}
+
+        {% set name = category.category | lower %}
+
+        <article class="category-card">
+
+            {% if 'biryani' in name %}
+                <div class="food-picture biryani-picture">🍛</div>
+            {% elif 'dessert' in name or 'ice cream' in name %}
+                <div class="food-picture dessert-picture">🍰</div>
+            {% elif 'pizza' in name %}
+                <div class="food-picture pizza-picture">🍕</div>
+            {% elif 'fast food' in name %}
+                <div class="food-picture burger-picture">🍔</div>
+            {% elif 'mexican' in name %}
+                <div class="food-picture mexican-picture">🌮</div>
+            {% elif 'non-veg' in name %}
+                <div class="food-picture chicken-picture">🍗</div>
+            {% elif 'sandwich' in name %}
+                <div class="food-picture sandwich-picture">🥪</div>
+            {% elif 'wrap' in name %}
+                <div class="food-picture wrap-picture">🌯</div>
+            {% elif 'seafood' in name or 'meat' in name %}
+                <div class="food-picture seafood-picture">🍤</div>
+            {% elif 'food delivery' in name or 'food ordering' in name %}
+                <div class="food-picture delivery-picture">🛵</div>
+            {% elif 'meal' in name %}
+                <div class="food-picture meal-picture">🍱</div>
+            {% else %}
+                <div class="food-picture default-picture">🍽️</div>
+            {% endif %}
+
+            <div class="category-card-content">
+                <h2>{{ category.category }}</h2>
+                <p>Something tasty is waiting for you!</p>
+
+                <a href="{{ url_for('compare') }}" class="nav-button">
+                    Find Food 🍽️
+                </a>
+            </div>
+
+        </article>
+
+        {% else %}
+
+        <p>No categories found yet.</p>
+
+        {% endfor %}
+
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Bite the Bill | Made with ❤️ and a little hunger!</p>
+</footer>
+
+</body>
+</html>
