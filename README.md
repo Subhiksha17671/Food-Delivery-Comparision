@@ -64,3 +64,7 @@ The food prices currently stored in the database are sample prices for demonstra
 ## 👩‍💻 Project
 
 **Bite the Bill — Find food. Compare prices. Save money.**
+
+## 📸 Project Screenshot
+
+![Bite the Bill Homepage](screenshot.png)
