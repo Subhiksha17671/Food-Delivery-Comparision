@@ -1,3 +1,9 @@
+# Bite the Bill 🍔
+
+🌐 **Live Website:** https://bite-the-bill.onrender.com
+
+A food delivery price comparison website that helps users compare food prices across platforms and find the cheapest option.
+
 # 🍔 Bite the Bill
 
 ### Food Delivery Price Comparison Website
